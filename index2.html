@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Mask Detection Web App</title>
+    <script src="http://127.0.0.1:8000/manage.py" type="application/javascript"></script>
+
+{#    <script src="/Django_VideoStream-master1/manage.py" type="application/javascript"></script>#}
+</head>
+<body>
+ <div align="center">
+    <h1>Face Mask Detection Web App</h1>
+
+     <video id="video" hight="423" width="1250" src="http://127.0.0.1:5500/video_feed" height="472" autoplay="true" alt="Live Video Stream"></video>
+<script>
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            var video = document.createElement('video');
+            video.width = 1250;
+            video.height = 423;
+            video.autoplay = true;
+            video.src="http://127.0.0.1:5500/video_feed";
+            document.body.appendChild(video);
+</script>
+
+
+    <script>
+        var video = document.getElementById('video');
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (error) {
+                    console.error('Error accessing camera:', error);
+                });
+        } else {
+            console.error('getUserMedia is not supported in this browser.');
+        }
+    </script></div>
+
+</body>
+</html>
