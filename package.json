@@ -1,7 +1,7 @@
 {
-  "name": "newsletter-signup",
+  "name": "facemask-detection-application",
   "version": "1.0.0",
-  "description": "A NewsLetter Web Application",
+  "description": "A facemask detection application",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
